@@ -22,7 +22,7 @@ if platform == "linux" or platform == "linux2":
     shared_library_name = "libthundergbm.so"
 else :
     print ("OS not supported!")
-    exit()
+    #exit()
 
 if path.exists(path.abspath(path.join(dirname, shared_library_name))):
     lib_path = path.abspath(path.join(dirname, shared_library_name))
@@ -34,7 +34,7 @@ if path.exists(lib_path):
     thundergbm = CDLL(lib_path)
 else :
     print ("Please build the library first!")
-    exit()
+    #exit()
 
 SVM_TYPE = ['c_svc', 'nu_svc', 'one_class', 'epsilon_svr', 'nu_svr']
 KERNEL_TYPE = ['linear', 'polynomial', 'rbf', 'sigmoid', 'precomputed']
@@ -80,7 +80,7 @@ class TGBMModel(ThundergbmBase, ThundergbmRegressorBase):
         fit = self._sparse_fit
         if self._sparse == False:
             print("dense matrix not supported yet")
-            exit(-1)
+            #exit(-1)
         fit(X, y)
         if self._train_succeed[0] == -1:
             print ("Training failed!")
